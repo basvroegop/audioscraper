@@ -1,0 +1,39 @@
+services:
+  audioscraper:
+    build: .
+    image: audioscraper:local
+    container_name: audioscraper
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8788:8787"
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      WORKER_URL: http://192.168.1.28:8765
+      POLL_SECONDS: 3600
+    volumes:
+      - ./data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8787/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - default
+      - traefik
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: traefik
+      traefik.http.routers.audioscraper.rule: Host(`audioscraper.vroeg.app`)
+      traefik.http.routers.audioscraper.entrypoints: websecure
+      traefik.http.routers.audioscraper.tls: "true"
+      traefik.http.routers.audioscraper.tls.certresolver: cloudflare
+      traefik.http.routers.audioscraper.middlewares: authelia-vroeg@file
+      traefik.http.services.audioscraper.loadbalancer.server.port: "8787"
+networks:
+  traefik:
+    external: true

@@ -1,0 +1,21 @@
+.segment-link {
+  display: block;
+  color: inherit;
+  border-radius: 5px;
+  padding: 1px 3px;
+  margin: -1px -3px;
+}
+
+.segment-link:hover {
+  background: #edf4e9;
+  color: #194632;
+  text-decoration: underline;
+  text-decoration-color: #8fac84;
+  text-underline-offset: 3px;
+}
+
+.segment-link span {
+  color: #6d8c62;
+  font-size: 10px;
+  white-space: nowrap;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "audioscraper-browser-tests",
+  "private": true,
+  "scripts": {
+    "test:browser": "node scripts/browser-check.cjs",
+    "test:browser:projects": "node scripts/browser-projects.cjs"
+  },
+  "devDependencies": {"@playwright/test": "1.61.1"}
+}

@@ -1,0 +1,8 @@
+# Add these rules at the start of access_control.rules in the existing
+# /mnt/user/appdata/Authelia/configuration.yml; do not replace the full config.
+- domain: audioscraper.vroeg.app
+  subject:
+    - user:bas
+  policy: two_factor
+- domain: audioscraper.vroeg.app
+  policy: deny

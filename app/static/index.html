@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="nl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#183f35"><title>Audioscraper — Projecten, transcripties en entiteiten</title><link rel="stylesheet" href="/static/style.css?v=20260928-1"><link rel="stylesheet" href="/static/transcript-links.css?v=20260919-1"><script src="/static/phone-regions.js?v=20260919-1" defer></script><script src="/static/app.js?v=20260928-1" defer></script></head>
+<body>
+<aside class="sidebar">
+<a href="#projects" class="brand"><span class="brand-icon"><i></i><i></i><i></i><i></i><i></i></span><span>audioscraper</span></a>
+<div class="nav-label">PROJECTEN</div>
+<nav class="project-nav" id="project-nav" aria-label="Projecten"></nav>
+<div class="nav-label" id="scope-label">ALLE PROJECTEN</div>
+<nav id="scope-nav" aria-label="Hoofdnavigatie"></nav>
+<div class="worker" id="worker"><span class="dot"></span><div>Worker controleren…<small>192.168.1.28</small></div></div>
+</aside>
+<main>
+<header class="topbar"><span id="breadcrumb">Projecten</span><div class="global-controls"><span id="processing-state" role="status">Status laden…</span><button type="button" id="processing-toggle" class="processing-toggle" disabled>Status laden…</button><div class="local-label"><span class="dot green"></span> Lokaal verwerkt</div></div></header>
+<div id="content"></div>
+<footer>Audioscraper <span>•</span> Iedere bron een eigen project.</footer>
+</main>
+<dialog id="add-dialog"><form id="add-form"><div class="dialog-head"><span class="eyebrow">START EEN NIEUWE OMGEVING</span><button type="button" class="icon-button" id="close-dialog" aria-label="Sluiten">×</button></div><h2>Nieuw project</h2><p>Iedere bron krijgt een eigen project met een eigen bibliotheek, transcripties, entiteiten en telefoonnummers.</p><label for="source-url">Bron-URL</label><input id="source-url" name="url" type="url" placeholder="https://www.youtube.com/@kanaal/streams of https://hoogeveen.raadsinformatie.nl/" required><label for="project-name">Projectnaam <small>optioneel</small></label><input id="project-name" name="name" maxlength="120" placeholder="Laat leeg om de naam van de bron te gebruiken"><label for="project-description">Waar gaat dit project over? <small>optioneel</small></label><input id="project-description" name="description" maxlength="400" placeholder="Korte omschrijving voor jezelf"><div class="form-row"><div><label for="source-kind">Wat wil je volgen?</label><select id="source-kind" name="kind"><option value="auto">Automatisch uit de URL</option><option value="youtube">Heel YouTube-kanaal</option><option value="youtube-videos">Alleen gewone video’s</option><option value="youtube-streams">Alleen live-uitzendingen</option><option value="youtube-shorts">Alleen Shorts</option><option value="youtube-playlist">Één afspeellijst</option><option value="rss">Podcast-RSS</option><option value="meetings">Raadsvergaderingen</option></select></div><div><label for="source-limit">Eerste import</label><select id="source-limit" name="initial_limit"><option value="1">Nieuwste aflevering</option><option value="3" selected>Nieuwste 3 afleveringen</option><option value="10">Nieuwste 10 afleveringen</option><option value="25">Nieuwste 25 afleveringen</option><option value="50">Nieuwste 50 afleveringen</option><option value="0">Alle beschikbare afleveringen</option></select></div></div><p class="form-help" id="source-help">Een kanaal of kanaaltab wordt ieder uur gecontroleerd. Een afspeellijst wordt ook gesynchroniseerd; een losse video wordt eenmalig verwerkt. Live-uitzendingen die nog bezig of ingepland zijn worden overgeslagen.</p><p id="form-error" class="error" role="alert"></p><button class="primary wide" id="submit-source">Project aanmaken <span>↗</span></button></form></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>
